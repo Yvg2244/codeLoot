@@ -10,7 +10,7 @@ const Navbar = () => {
   const [userName,setUserName]=useState('')
   useEffect(()=>{
     setUserName(user?user.name:"Login")
-  },[user])
+  },[user,userName])
   return (
     <nav className="bg-primary_black fixed font-monte justify-center text-[18px] flex w-full py-4 px-2">
       {
@@ -29,10 +29,10 @@ const Navbar = () => {
           <Link to="/" className="font-inter font-bold">
             Explore
           </Link>
-          <Link to="/Wallet" className="font-inter font-bold">
+          <Link to="/wallet" className="font-inter font-bold">
             Wallet
           </Link>
-          <Link to="/history" className="font-inter font-bold">
+          <Link to="/contest" className="font-inter font-bold">
             Contest
           </Link>
           {/* <Link to="/friends" className="font-inter font-bold">

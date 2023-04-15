@@ -7,12 +7,15 @@ const LoginPage = ({ openLoginModal, oncloseLoginModal }) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [userData, setUserData] = useState(null);
+  const localUserInfo = localStorage.getItem("userData");
 
   if (!openLoginModal) return null;
   return ReactDOM.createPortal(
     <div className="absolute z-10 w-[100vw] flex justify-center h-[100vh] backdrop-blur-sm bg-black/30">
       <RemoveScrollBar />
-      <div className="h-[20rem] p-5 w-auto bg-primary_gray flex flex-col gap-5 items-center">
+      {localUserInfo?<div>
+        data
+      </div>: <div className="h-[20rem] p-5 w-auto bg-primary_gray flex flex-col gap-5 items-center">
         <div
           className="w-full font-bold cursor-pointer text-right "
           onClick={oncloseLoginModal}
@@ -51,10 +54,9 @@ const LoginPage = ({ openLoginModal, oncloseLoginModal }) => {
                 password: password,
               })
               .then((res) => {
-                setUserData(res.data.user)
+                localStorage.setItem("userData", JSON.stringify(res.data.user));
+                setUserData(res.data.user);
                 console.log(userData);
-                
-                localStorage.setItem("userData", JSON.stringify(userData));
               })
               .catch((err) => {
                 console.log(err);
@@ -63,7 +65,8 @@ const LoginPage = ({ openLoginModal, oncloseLoginModal }) => {
         >
           Submit
         </button>
-      </div>
+      </div>}
+     
     </div>,
     document.getElementById("loginRoomPortal")
   );

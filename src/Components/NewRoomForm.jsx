@@ -210,7 +210,7 @@ const NewRoomForm = () => {
             Public
           </label>
 
-          <input type="radio" id="ptivate" name="radioRoomType" value="private" />
+          <input type="radio" id="private" name="radioRoomType" value="private" />
           <label className="bg-[#363636] text-[#999999]" htmlFor="private">
             Private
           </label>

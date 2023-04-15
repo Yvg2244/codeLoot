@@ -6,10 +6,12 @@ import {useStateValue} from '../context/stateProvider'
 
 const CreateRoomModal = ({ openRoomModal, onCloseRoomModal }) => {
   if (!openRoomModal) return null;
-  const [{newRoom},dispatch]=useStateValue()
+  const [{newRoom,user},dispatch]=useStateValue()
   return ReactDOM.createPortal(
     <div className="absolute z-10 w-[100vw] flex justify-center h-[100vh] backdrop-blur-sm bg-black/30">
       <div className="h-[auto] w-[20rem] bg-primary_gray flex flex-col gap-5 items-center justify-center">
+      <div className="text-primary_green font-monte">Wallet Balance - {user.wallet}</div>
+        
         <div className="text-primary_green font-monte">Room Details</div>
         <div className="grid grid-cols-2 gap-4 text-primary_gray_light">
           <div className="text-gray-500">Topic</div>
@@ -27,9 +29,9 @@ const CreateRoomModal = ({ openRoomModal, onCloseRoomModal }) => {
         </div>
         <Link
           to="/joinroom"
-          className="py-2 px-10 text-[12px] font-poppins tracking-wide rounded-md bg-primary_green text-black"
+          className="py-2 px-10 text-[12px] font-semibold  font-poppins tracking-wide rounded-md bg-primary_green text-black"
         >
-          Create Room
+          Pay and Create Room
         </Link>
         <div
           className="py-2 px-10 text-[12px] font-poppins tracking-wide rounded-md bg-primary_gray text-white border-2 border-white"
