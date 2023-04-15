@@ -15,7 +15,7 @@ const LeaderBoardComponent = () => {
       <p className="text-primary_green text-[2rem]">Leader Board</p>
       <div className="flex gap-2 items-center">
         <p>Test Case</p>
-        {outputStatus?<p className="text-primary_green">Passed</p>:<p className="text-primary_green">Failed</p>}
+        {<p className="text-primary_green">{outputStatus}</p>}
       </div>
       
     </div>

@@ -20,20 +20,21 @@ const RoomPageEditorSection = () => {
     result = int(sys.argv[2])
     print(add(a) == result)`);
   const [chosenLang, setChosenLang] = useState("python");
-  const [{ newRoom, activeQuestion, user }, dispatch] = useStateValue();
+  const [{ newRoom,joinRoomFlag,joinedRoom,outputStatus, activeQuestion, user }, dispatch] = useStateValue();
   const userId = "123";
   const onChange = React.useCallback((value, ViewUpdate) => {
     setCode(value);
   }, []);
-  const runCode = async () => {
+  const runCode = async (joinedRoom) => {
     console.log(code);
     const url = "https://devs-clash.onrender.com/python";
     const body = {
       code: code,
       user_name: user?.user_name,
-      roomId: newRoom.id,
+      roomId: joinRoomFlag?joinedRoom?.id:newRoom.id,
       Q: activeQuestion,
     };
+    console.log(body)
     axios
       .patch(url, body, {
         headers: {
@@ -97,7 +98,7 @@ if __name__ == "__main__":
       ></CodeMirror>
 
       <div
-        onClick={runCode}
+        onClick={()=>{runCode(joinedRoom)}}
         className="absolute bottom-[1rem] ml-[15px] cursor-pointer py-[6px] px-[36px] text-[16px] font-medium font-inter tracking-wide rounded-md items-center justify-center flex bg-primary_green text-black"
       >
         {" "}

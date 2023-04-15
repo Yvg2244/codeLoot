@@ -16,7 +16,7 @@ const ActiveRoomCard = ({
   startTimeMinute,
   price,
 }) => {
-  const [{user}, dispatch] = useStateValue();
+  const [{user,joinedRoomFlag}, dispatch] = useStateValue();
   const navigate = useNavigate();
   const joinRoomByCard = (id) => {
     axios
@@ -83,6 +83,10 @@ const ActiveRoomCard = ({
         <div className="text-[14px] px-[18px] py-[4px] rounded-md bg-primary_green text-black ">
           <span
             onClick={() => {
+              dispatch({
+                type:"SET_JOINROOM_FLAG",
+                joinRoomFlag:true
+              })
               joinRoomByCard(id)
             }}
             className="font-semibold text-black"

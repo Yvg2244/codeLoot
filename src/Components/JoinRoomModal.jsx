@@ -21,6 +21,8 @@ const JoinRoomModal = ({ open, onClose }) => {
         ></input>
         <div
           onClick={() => {
+            // console.log(user.user_name,enteredRoomCode);
+
             axios
               .patch("https://devs-clash.onrender.com/join", {
                 user_name: user.user_name,

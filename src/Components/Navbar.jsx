@@ -29,15 +29,15 @@ const Navbar = () => {
           <Link to="/" className="font-inter font-bold">
             Explore
           </Link>
-          <Link to="/wallet" className="font-inter font-bold">
+          <Link to="/Wallet" className="font-inter font-bold">
             Wallet
           </Link>
           <Link to="/history" className="font-inter font-bold">
-            History
+            Contest
           </Link>
-          <Link to="/friends" className="font-inter font-bold">
+          {/* <Link to="/friends" className="font-inter font-bold">
             Friends
-          </Link>
+          </Link> */}
         </div>
       </div>
       <div
