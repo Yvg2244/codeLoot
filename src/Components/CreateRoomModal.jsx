@@ -10,7 +10,7 @@ const CreateRoomModal = ({ openRoomModal, onCloseRoomModal }) => {
   return ReactDOM.createPortal(
     <div className="absolute z-10 w-[100vw] flex justify-center h-[100vh] backdrop-blur-sm bg-black/30">
       <div className="h-[auto] w-[20rem] bg-primary_gray flex flex-col gap-5 items-center justify-center">
-      <div className="text-primary_green font-monte">Wallet Balance - {user.wallet}</div>
+      <div className="text-primary_green font-monte">Wallet Balance  {user.wallet}</div>
         
         <div className="text-primary_green font-monte">Room Details</div>
         <div className="grid grid-cols-2 gap-4 text-primary_gray_light">

@@ -23,7 +23,13 @@ const WaitingRoomModal = ({
   return ReactDOM.createPortal(
     <div className="absolute z-10 w-[100vw] flex justify-center h-[100vh] backdrop-blur-sm bg-black/30">
       <div className="h-[15rem] w-[20rem] bg-primary_gray flex flex-col gap-5 items-center justify-center">
-        {remainingMinute > 0 ? (
+      <div
+            className="py-2 px-10 text-[12px] font-poppins tracking-wide rounded-md bg-primary_gray text-white border-2 border-white"
+            onClick={onCloseWaitingRoomModal}
+          >
+            Enter Room
+          </div>
+        {/* {remainingMinute > 0 ? (
           <>
             <div className="text-primary_green font-monte">Room unlocks in</div>
             <div className="py-2 px-10 text-[12px] font-poppins tracking-wide rounded-md bg-primary_green text-black">
@@ -37,7 +43,7 @@ const WaitingRoomModal = ({
           >
             Enter Room
           </div>
-        )}
+        )} */}
       </div>
     </div>,
     document.getElementById("joinRoomPortal")

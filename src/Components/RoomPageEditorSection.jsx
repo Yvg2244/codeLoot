@@ -76,17 +76,18 @@ const RoomPageEditorSection = () => {
         </select>
         <div className="ml-auto">00:02:30</div>
       </div>
-      <RemoveScrollBar />
+    
       <CodeMirror
         value={`import sys;
 
-def add(a):
+def add(a,b):
   # enter your code here
 
 if __name__ == "__main__":
   a = int(sys.argv[1])
-  result = int(sys.argv[2])
-  print(add(a) == result)
+  b = int(sys.argv[2])
+  result = int(sys.argv[3])
+  print(add(a,b) == result)
 `}
         height="100%"
         width="30rem"
