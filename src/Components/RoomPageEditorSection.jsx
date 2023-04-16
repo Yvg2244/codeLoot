@@ -42,18 +42,19 @@ const RoomPageEditorSection = () => {
         },
       })
       .then((response) => {
+
+        console.log(response.data.msg[0])
         dispatch({
           type:"SET_OUTPUT_STATUS",
-          outputStatus:true
+          outputStatus:response.data.msg[0]
         })
-        console.log(response.data.msg[0]);
+        // console.log(response.data.msg[0]);
       })
       .catch((error) => {
         console.error("Error:", error);
-        dispatchEvent({
-          type:"SET_OUTPUT_STATUS",
-          outputStatus:false
-        })
+       
+        
+
       });
   };
   return (

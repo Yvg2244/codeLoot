@@ -19,6 +19,7 @@ const Contest = () => {
         console.log(err);
       });
   }, []);
+  
   return (
     <main className="w-[100vw] h-[auto] pt-[5.25rem] gap-5 px-[2rem] bg-primary_gray flex flex-col items-center text-white">
       <div className="flex w-full  pb-[2rem] gap-[18px] items-center  flex-wrap">
@@ -34,6 +35,7 @@ const Contest = () => {
               startTimeHour={item.startTimeHour}
               startTimeMinute={item.startTimeMinute}
               key={item.id}
+              
             ></ActiveRoomCard>
           );
         })}

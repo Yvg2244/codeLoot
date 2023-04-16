@@ -8,7 +8,7 @@ const ActiveRooms = () => {
     axios
       .get("https://devs-clash.onrender.com/", {})
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setAvailableRoom(res.data.result);
       })
       .catch((err) => {
