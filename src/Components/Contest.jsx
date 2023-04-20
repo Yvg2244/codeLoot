@@ -7,6 +7,8 @@ const Contest = () => {
   const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
+    if(user)
+    {
     axios
       .post("https://devs-clash.onrender.com/mycontest", {
         user_name: user.user_name,
@@ -18,11 +20,12 @@ const Contest = () => {
       .catch((err) => {
         console.log(err);
       });
+    }
   }, []);
   
   return (
     <main className="w-[100vw] h-[auto] pt-[5.25rem] gap-5 px-[2rem] bg-primary_gray flex flex-col items-center text-white">
-      <div className="flex w-full  pb-[2rem] gap-[18px] items-center  flex-wrap">
+      {user?<div className="flex w-full  pb-[2rem] gap-[18px] items-center  flex-wrap">
         {contestData?.map((item) => {
           return (
             <ActiveRoomCard
@@ -39,7 +42,8 @@ const Contest = () => {
             ></ActiveRoomCard>
           );
         })}
-      </div>
+      </div>:<div className="h-[100vh] text-3xl text-primary_green font-bold flex items-start justify-center">Login to see contest</div>}
+      
     </main>
   );
 };

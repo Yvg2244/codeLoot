@@ -45,7 +45,7 @@ const JoinRoomModal = ({ open, onClose }) => {
 
             navigate("/joinRoom");
           }}
-          className="py-2 px-10 text-[12px] font-poppins tracking-wide rounded-md bg-primary_green text-black"
+          className="py-2 px-10 text-[12px] font-poppins font-semibold tracking-wide rounded-md bg-primary_green text-black"
         >
           Join Room
         </div>
