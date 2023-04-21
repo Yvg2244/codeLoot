@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import axios from "axios";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { useStateValue } from "../context/stateProvider";
-const LoginPage = ({ openLoginModal, oncloseLoginModal }) => {
+const SignupPage = ({ openLoginModal, oncloseLoginModal }) => {
   const [{ user }, dispatch] = useStateValue();
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -120,4 +120,4 @@ const LoginPage = ({ openLoginModal, oncloseLoginModal }) => {
   );
 };
 
-export default LoginPage;
+export default SignupPage;

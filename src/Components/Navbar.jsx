@@ -4,6 +4,7 @@ import { CgProfile } from "react-icons/cg";
 import { useStateValue } from "../context/stateProvider";
 import LoginPage from "./LoginPage";
 import { useEffect } from "react";
+import SignupPage from "./SignupPage";
 const Navbar = () => {
   const [openLoginRoomRequest, setOpenLoginRoomRequest] = useState(false);
   const [{ user }, dispatch] = useStateValue();
@@ -21,6 +22,10 @@ const Navbar = () => {
           }}
         />
       }
+      {/* {
+        <SignupPage
+        ></SignupPage>
+      } */}
       <div className="font-serif font-bold w-[20%]">
         <p className="text-primary_green font-inter font-bold">DevsClash</p>
       </div>

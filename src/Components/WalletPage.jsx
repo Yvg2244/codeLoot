@@ -8,7 +8,7 @@ const WalletPage = () => {
 
   return (
     <main className="w-[100vw] h-[100vh] pt-[5.25rem] gap-5 px-[2rem] bg-primary_gray flex flex-col items-center text-white">
-      <div className="bg-primary_gray_light flex flex-col items-center justify-center gap-5 p-5 rounded-md">
+      {user?<div className="bg-primary_gray_light flex flex-col items-center justify-center gap-5 p-5 rounded-md">
         <div className="text-xl text-primary_green">Name</div>
         <div className="text-3xl font-bold">{user.name}</div>
         <div className="text-xl text-primary_green">Balance</div>
@@ -54,7 +54,8 @@ const WalletPage = () => {
         >
           Add Money
         </button>
-      </div>
+      </div>:<div className="h-[100vh] text-3xl text-primary_green font-bold flex items-start justify-center">Login to see wallet</div>}
+      
     </main>
   );
 };
