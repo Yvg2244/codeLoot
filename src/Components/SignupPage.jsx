@@ -2,121 +2,126 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
+import { useFormik } from "formik";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { useStateValue } from "../context/stateProvider";
-const SignupPage = ({ openLoginModal, oncloseLoginModal }) => {
-  const [{ user }, dispatch] = useStateValue();
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [userData, setUserData] = useState(null);
-  const [loginErr, setLoginErr] = useState(false);
-  const [errMsg, setErrMsg] = useState(null);
+const SignupPage = ({ openSignupModal, oncloseSignupModal }) => {
+  const validate = (values) => {
+    const errors = {};
+    if (!values.Name) errors.Name = "Required";
+    if (!values.Email) errors.Email = "Required";
+    if (!values.Username) errors.Username = "Required";
+    if (!values.Password) errors.Password = "Required";
+    return errors;
+  };
+  const formik = useFormik({
+    initialValues: { Name: "", Email: "", Username: "", Password: "" },
+    validate,
+    onSubmit: (values) => {
+      axios
+        .post("https://devs-clash.onrender.com/signin", {
+          contest: [],
+          wallet: 0,
+          name: values.Name,
+          user_name: values.Username,
+          password: values.Password,
+          email: values.Email,
+        })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+        console.log("first")
+    },
+  });
 
-  useEffect(() => {}, [errMsg]);
-  if (!openLoginModal) return null;
+  if (!openSignupModal) return null;
   return ReactDOM.createPortal(
-    <div className="absolute z-10 w-[100vw] flex justify-center h-[100vh] backdrop-blur-sm bg-black/30">
+    <div className="absolute z-20 w-[100vw] flex justify-center h-[100vh] backdrop-blur-sm bg-black/30">
       <RemoveScrollBar />
-      {user ? (
-        <div className="flex items-start ">
-          <div className="flex h-auto flex-col p-5 rounded-md  items-center bg-primary_black text-lg  w-[20rem] gap-5">
-            <div className="w-full flex justify-end">
-              <button onClick={oncloseLoginModal}> x</button>
-            </div>
-            <div className="font-monte text-3xl text-primary_green">
-              {user.name}
-            </div>
-            <div className="text-lg">{user.email}</div>
-            <div>Wallet Balance {user.wallet}</div>
-            <button className="py-2 px-10 text-[12px] font-poppins tracking-wide rounded-md bg-primary_green text-black font-semibold">
-              Add Money
-            </button>
-            <button
-              className="py-2 px-10 text-[12px] font-poppins tracking-wide rounded-md bg-primary_gray text-white border-2 border-white"
-              onClick={() => {
-                localStorage.clear();
-                dispatch({
-                  type: "SET_USER",
-                  user: null,
-                });
-              }}
-            >
-              Logout
-            </button>
+      <div className="flex items-start">
+        <form
+          className="flex h-auto flex-col p-5 rounded-md  items-center bg-primary_black text-lg  w-fit gap-3"
+          onSubmit={formik.handleSubmit}
+        >
+          <div className="w-full flex justify-end">
+            <button onClick={oncloseSignupModal}> x</button>
           </div>
-        </div>
-      ) : (
-        <div className="h-fit p-5 w-auto bg-primary_gray flex flex-col gap-5 items-center">
-          <div
-            className="w-full font-semibold cursor-pointer text-right "
-            onClick={oncloseLoginModal}
-          >
-            X
-          </div>
-          <label className="text-primary_green" htmlFor="loginId">
-            Username
+          <label className="text-primary_green" htmlFor="Name">
+            Enter name
           </label>
           <input
-          required
+            className="m-2"
             type="text"
-            onChange={(e) => {
-              setUserName(e.target.value);
-            }}
-            name="loginId"
-            id="loginId"
+            name="Name"
+            id="Name"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.Name}
           />
-          <label className="text-primary_green" htmlFor="password">
-            Password
+          {formik.touched.Name && formik.errors.Name ? (
+            <div className="text-red-600 text-md">{formik.errors.Name}</div>
+          ) : null}
+          <label className="text-primary_green" htmlFor="Email">
+            Enter email
           </label>
           <input
-          required
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-            type="password"
-            name="password"
-            id="password"
+            className="m-2"
+            type="email"
+            name="Email"
+            id="Email"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.Email}
           />
-          {errMsg && <div className="text-red-500">{errMsg}</div>}
+          {formik.touched.Email && formik.errors.Email ? (
+            <div className="text-red-600 text-md">{formik.errors.Email}</div>
+          ) : null}
+
+          <label className="text-primary_green" htmlFor="Username">
+            Enter username
+          </label>
+          <input
+            className="m-2"
+            type="text"
+            name="Username"
+            id="Username"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.Username}
+          />
+          {formik.touched.Username && formik.errors.Username ? (
+            <div className="text-red-600 text-md">{formik.errors.Username}</div>
+          ) : null}
+
+          <label className="text-primary_green" htmlFor="Password">
+            Enter password
+          </label>
+          <input
+            className="m-2"
+            type="password"
+            name="Password"
+            id="Password"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.Password}
+          />
+          {formik.touched.Password && formik.errors.Password ? (
+            <div className="text-red-600 text-md">{formik.errors.Password}</div>
+          ) : null}
+
           <button
-            className="py-[6px] px-[36px] text-[16px] font-medium font-inter tracking-wide rounded-md bg-primary_green text-black "
-            onClick={() => {
-              axios
-                .post("https://devs-clash.onrender.com/login", {
-                  user_name: userName,
-                  password: password,
-                })
-                .then((res) => {
-                  if (res.data.msg != "true") {
-                    console.log(res.data.msg);
-                    setLoginErr(true);
-                    setErrMsg(res.data.msg);
-                  } else {
-                    setUserData(res.data.user);
-                    localStorage.setItem(
-                      "userData",
-                      JSON.stringify(res.data.user)
-                    );
-                    dispatch({
-                      type: "SET_USER",
-                      user: res.data.user,
-                    });
-                  }
-                })
-                .catch((err) => {
-                  alert(err);
-                });
-            }}
+            className="py-[6px] mt-4 px-[36px] text-[16px] font-medium font-inter tracking-wide rounded-md bg-primary_green text-black "
+            type="submit"
           >
             Submit
           </button>
-          <button className="py-[6px] px-[36px] text-[16px] font-medium font-inter tracking-wide rounded-md bg-primary_gray text-white border-2 border-white">
-            Sign Up
-          </button>
-        </div>
-      )}
+        </form>
+      </div>
     </div>,
-    document.getElementById("loginRoomPortal")
+    document.getElementById("singupPortal")
   );
 };
 

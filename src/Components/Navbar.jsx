@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import SignupPage from "./SignupPage";
 const Navbar = () => {
   const [openLoginRoomRequest, setOpenLoginRoomRequest] = useState(false);
+  const [openSignupRoomRequest, setOpenSignupRoomRequest] = useState(false);
+
   const [{ user }, dispatch] = useStateValue();
   const [userName,setUserName]=useState('')
   useEffect(()=>{
@@ -22,10 +24,8 @@ const Navbar = () => {
           }}
         />
       }
-      {/* {
-        <SignupPage
-        ></SignupPage>
-      } */}
+     
+      
       <div className="font-serif font-bold w-[20%]">
         <p className="text-primary_green font-inter font-bold">DevsClash</p>
       </div>

@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import axios from "axios";
 import { RemoveScrollBar } from "react-remove-scroll-bar";
 import { useStateValue } from "../context/stateProvider";
+import SignupPage from "./SignupPage";
 const LoginPage = ({ openLoginModal, oncloseLoginModal }) => {
   const [{ user }, dispatch] = useStateValue();
   const [userName, setUserName] = useState("");
@@ -11,12 +12,19 @@ const LoginPage = ({ openLoginModal, oncloseLoginModal }) => {
   const [userData, setUserData] = useState(null);
   const [loginErr, setLoginErr] = useState(false);
   const [errMsg, setErrMsg] = useState(null);
-
+  const [openSignupRoomRequest, setOpenSignupRoomRequest] = useState(false);
   useEffect(() => {}, [errMsg]);
   if (!openLoginModal) return null;
   return ReactDOM.createPortal(
     <div className="absolute z-10 w-[100vw] flex justify-center h-[100vh] backdrop-blur-sm bg-black/30">
       <RemoveScrollBar />
+      {
+        <SignupPage
+        openSignupModal={openSignupRoomRequest}
+        oncloseSignupModal={() => {
+          setOpenSignupRoomRequest(!openSignupRoomRequest);
+        }}/>
+      }
       {user ? (
         <div className="flex items-start ">
           <div className="flex h-auto flex-col p-5 rounded-md  items-center bg-primary_black text-lg  w-[20rem] gap-5">
@@ -110,7 +118,12 @@ const LoginPage = ({ openLoginModal, oncloseLoginModal }) => {
           >
             Submit
           </button>
-          <button className="py-[6px] px-[36px] text-[16px] font-medium font-inter tracking-wide rounded-md bg-primary_gray text-white border-2 border-white">
+          <button
+          onClick={()=>{
+            setOpenSignupRoomRequest(!openSignupRoomRequest)
+            // oncloseLoginModal()
+          }}
+           className="py-[6px] px-[36px] text-[16px] font-medium font-inter tracking-wide rounded-md bg-primary_gray text-white border-2 border-white">
             Sign Up
           </button>
         </div>
