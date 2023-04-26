@@ -40,6 +40,9 @@ const Navbar = () => {
           <Link to="/contest" className="font-inter font-bold">
             Contest
           </Link>
+          <Link to="/admin" className="font-inter font-bold">
+            Admin
+          </Link>
           {/* <Link to="/friends" className="font-inter font-bold">
             Friends
           </Link> */}

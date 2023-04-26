@@ -5,6 +5,7 @@ import RoomPage from "./Components/RoomPage";
 import { Route, Routes } from "react-router-dom";
 import WalletPage from "./Components/WalletPage";
 import Contest from "./Components/Contest";
+import Admin from "./Components/Admin";
 
 function App() {
   return <div className="App tracking-wide">
@@ -15,7 +16,7 @@ function App() {
       <Route path='/joinroom' element={<RoomPage/>}/>
       <Route path='/wallet' element={<WalletPage/>}/>
       <Route path='/contest' element={<Contest/>}/>
-
+      <Route path='/admin' element={<Admin/>}/>
 
     </Routes>
 
