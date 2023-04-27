@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Formik, useFormik } from "formik";
+import loader from '../assets/loader.svg'
 import axios from "axios";
 const Admin = () => {
   const [finalQuestionsUploaded, setFinalQuestionsUploaded] = useState(null);
@@ -65,8 +66,10 @@ const Admin = () => {
           value={formik.values.qId}
         />
         <label htmlFor="statement">Statement</label>
-        <input
-          className="m-2"
+        <textarea
+          className="m-2 bg-primary_gray_light p-2"
+          rows="4" cols="50"
+
           type="text"
           name="statement"
           id="statement"
@@ -75,15 +78,16 @@ const Admin = () => {
           value={formik.values.statement}
         />{" "}
         <label htmlFor="testcase">Testcases</label>
-        <input
-          className="m-2"
+        <textarea
+          className="m-2 bg-primary_gray_light p-2"
           type="text"
+          rows="4" cols="50"
           name="testcase"
           id="testcase"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.testcase}
-        />{" "}
+        />
         <label htmlFor="topic">Topic</label>
         <input
           className="m-2"
@@ -93,7 +97,7 @@ const Admin = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.topic}
-        />{" "}
+        />
         <label htmlFor="difficulty">Difficulty</label>
         <input
           className="m-2"
@@ -122,7 +126,7 @@ const Admin = () => {
         </button>
       </form>
       <section className="flex flex-col w-[100vw] justify-between">
-        <div className="grid grid-cols-5 text-white gap-4">
+        <div className="grid grid-cols-5 text-center text-white gap-5">
           <p>QId</p>
           <p>Topic</p>
           <p>Statement</p>
@@ -130,17 +134,17 @@ const Admin = () => {
           <p>Explanation</p>
         </div>
 
-        {finalQuestionsUploaded?.map((item) => {
+        {finalQuestionsUploaded?finalQuestionsUploaded.map((item) => {
           return (
-            <div className="grid grid-cols-5  gap-5 w-[100vw]">
+            <div className="grid grid-cols-5 mb-5 border-primary_gray_light border-[1px] gap-5 text-center w-[100vw]">
               <p>{item.qId}</p>
               <p>{item.topic}</p>
-              <p className="w-[5rem]  h-[auto]">{item.statement}</p>
-              <p className="w-[5rem] h-[auto]">{item.testcase}</p>
-              <p className="w-[5rem]  h-[auto]">{item.explanation}</p>
+              <p className="  h-[auto]">{item.statement}</p>
+              <p className=" h-[auto]">{item.testcase}</p>
+              <p className="  h-[auto]">{item.explanation}</p>
             </div>
           );
-        })}
+        }):<div className="w-[100vw] flex items-start justify-center"><img src={loader} height={50} width={50}/></div>}
       </section>
     </main>
   );
