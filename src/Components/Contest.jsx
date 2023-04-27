@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useStateValue } from "../context/stateProvider";
 import ActiveRoomCard from "./ActiveRoomCard";
 import axios from "axios";
-import loader from '../assets/loader.svg'
+import loader from '../assets/LOADER00_1.gif'
 const Contest = () => {
   const [contestData, setContestData] = useState(null);
   const [{ user }, dispatch] = useStateValue();
@@ -42,7 +42,7 @@ const Contest = () => {
               
             ></ActiveRoomCard>
           );
-        }):<div className="w-[100vw] flex justify-center items-center"><img src={loader} height={50} width={50}/></div>}
+        }):<div className="w-[100vw] flex justify-center items-center"><img src={loader} height={100} width={200}/></div>}
       </div>:<div className="h-[100vh] text-3xl text-primary_green font-bold flex items-start justify-center">Login to see contest</div>}
       
     </main>

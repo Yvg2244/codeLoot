@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Formik, useFormik } from "formik";
-import loader from '../assets/loader.svg'
+import loader from '../assets/LOADER00_1.gif'
+
 import axios from "axios";
 const Admin = () => {
   const [finalQuestionsUploaded, setFinalQuestionsUploaded] = useState(null);
@@ -144,7 +145,7 @@ const Admin = () => {
               <p className="  h-[auto]">{item.explanation}</p>
             </div>
           );
-        }):<div className="w-[100vw] flex items-start justify-center"><img src={loader} height={50} width={50}/></div>}
+        }):<div className="w-[100vw] flex items-start justify-center"><img src={loader} height={100} width={200}/></div>}
       </section>
     </main>
   );

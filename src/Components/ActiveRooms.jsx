@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import ActiveRoomCard from "./ActiveRoomCard";
 import axios from "axios";
-import loader from '../assets/loader.svg'
+import loader from '../assets/LOADER00_1.gif'
 import { useState, useEffect } from "react";
 const ActiveRooms = () => {
   const [availableRoom, setAvailableRoom] = useState(null);
@@ -33,7 +33,7 @@ const ActiveRooms = () => {
             key={item.id}
           ></ActiveRoomCard>
         );
-      }):<div className="w-[100vw] flex items-start justify-center"><img src={loader} height={50} width={50}/></div>}
+      }):<div className="w-[100vw] flex items-start justify-center"><img src={loader} height={100} width={200}/></div>}
       
     </div>
   );
