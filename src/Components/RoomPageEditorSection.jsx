@@ -27,12 +27,13 @@ const RoomPageEditorSection = () => {
   }, []);
   const runCode = async (joinedRoom) => {
     console.log(code);
-    const url = "https://devs-clash.onrender.com/python";
+    const url = "https://devs-clash.onrender.com/runcode";
     const body = {
       code: code,
       user_name: user?.user_name,
       roomId: joinRoomFlag?joinedRoom?.id:newRoom.id,
       Q: activeQuestion,
+      lang:"python"
     };
     console.log(body)
     axios
