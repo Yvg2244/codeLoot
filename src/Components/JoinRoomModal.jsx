@@ -29,6 +29,7 @@ const JoinRoomModal = ({ open, onClose }) => {
                 roomId: enteredRoomCode,
               })
               .then((res) => {
+                console.log(res)
                 dispatch({
                   type: "SET_QUESTIONS",
                   questions: res.data.questions,
