@@ -51,7 +51,7 @@ const RoomPageEditorSection = () => {
       user_name: user?.user_name,
       roomId: joinRoomFlag ? joinedRoom?.id : newRoom.id,
       Q: activeQuestion,
-      lang: "python",
+      lang: selectedLang,
     };
     console.log(body);
     axios
