@@ -14,7 +14,8 @@ export const initialState = {
   activeQuestion:0,
   outputStatus:false,
   joinRoomFlag:false,
-  joinedRoom:null
+  joinedRoom:null,
+  selectedLang:"python"
 };
 const reducer = (state, action) => {
     switch (action.type) {
@@ -53,6 +54,11 @@ const reducer = (state, action) => {
             ...state,
             joinedRoom: action.joinedRoom,
           };
+          case "SET_LANG":
+        return {
+          ...state,
+          selectedLang: action.selectedLang,
+        };
       default:
         return state;
     }
