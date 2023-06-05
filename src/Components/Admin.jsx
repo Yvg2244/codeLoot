@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Formik, useFormik } from "formik";
-import loader from '../assets/LOADER00_1.gif'
+import loader from '../assets/loader.svg'
 
 import axios from "axios";
 const Admin = () => {

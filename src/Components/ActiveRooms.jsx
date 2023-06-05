@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import ActiveRoomCard from "./ActiveRoomCard";
 import axios from "axios";
-import loader from '../assets/LOADER00_1.gif'
+import loader from '../assets/loader.svg'
 import { useState, useEffect } from "react";
 const ActiveRooms = () => {
   const [availableRoom, setAvailableRoom] = useState(null);

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useStateValue } from "../context/stateProvider";
 import ActiveRoomCard from "./ActiveRoomCard";
 import axios from "axios";
-import loader from '../assets/LOADER00_1.gif'
+import loader from '../assets/loader.svg'
 const Contest = () => {
   const [contestData, setContestData] = useState(null);
   const [{ user }, dispatch] = useStateValue();
