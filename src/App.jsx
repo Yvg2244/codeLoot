@@ -8,7 +8,7 @@ import Contest from "./Components/Contest";
 import Admin from "./Components/Admin";
 
 function App() {
-  return <div className="App tracking-wide">
+  return <div className="App tracking-wide bg-primary_gray">
     <Navbar/>
     <Routes>
       <Route path='/' element={<DisplayPage/>}/>

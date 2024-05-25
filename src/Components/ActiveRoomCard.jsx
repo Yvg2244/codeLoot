@@ -29,14 +29,14 @@ const ActiveRoomCard = ({
         type: "SET_QUESTIONS",
         questions: res.data.questions,
       });
-      console.log(res.data);
+      // console.log(res.data);
       dispatch({
         type:"SET_JOINED_ROOM",
         joinedRoom:res.data
        })
     })
     .catch((err) => {
-      console.log(err);
+      // console.log(err);
     });
 
   navigate("/joinRoom");

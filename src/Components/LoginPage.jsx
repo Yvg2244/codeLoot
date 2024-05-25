@@ -16,8 +16,8 @@ const LoginPage = ({ openLoginModal, oncloseLoginModal }) => {
   useEffect(() => {}, [errMsg]);
   if (!openLoginModal) return null;
   return ReactDOM.createPortal(
-    <div className="absolute z-10 w-[100vw] flex justify-center h-[100vh] backdrop-blur-sm bg-black/30">
-      <RemoveScrollBar />
+    <div className="fixed top-0 z-10 w-[100vw] flex justify-center h-[100vh] backdrop-blur-sm bg-black/30">
+
       {
         <SignupPage
         openSignupModal={openSignupRoomRequest}
@@ -96,7 +96,7 @@ const LoginPage = ({ openLoginModal, oncloseLoginModal }) => {
                 })
                 .then((res) => {
                   if (res.data.msg != "true") {
-                    console.log(res.data.msg);
+                    // console.log(res.data.msg);
                     setLoginErr(true);
                     setErrMsg(res.data.msg);
                   } else {

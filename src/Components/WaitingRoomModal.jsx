@@ -19,7 +19,7 @@ const WaitingRoomModal = ({
   }, []);
 
   if (!openWaitingRoomModal) return null;
-  console.log(newRoom)
+  // console.log(newRoom)
   return ReactDOM.createPortal(
     <div className="absolute z-10 w-[100vw] flex justify-center h-[100vh] backdrop-blur-sm bg-black/30">
       <div className="h-[15rem] w-[20rem] bg-primary_gray flex flex-col gap-5 items-center justify-center">

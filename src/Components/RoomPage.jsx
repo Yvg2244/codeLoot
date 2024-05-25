@@ -10,7 +10,7 @@ import { useStateValue } from '../context/stateProvider'
 const RoomPage = () => {
   const [waitingRoomRequest, setWaitingRoomRequest] = useState(true);
   const [{joinRoomFlag},dispatch]=useStateValue()
-  console.log("joinroomflag",joinRoomFlag)
+  // console.log("joinroomflag",joinRoomFlag)
   return (
     <div className='flex w-full min-h-screen h-[100vh] bg-primary_gray text-primary_green '>
        {joinRoomFlag?

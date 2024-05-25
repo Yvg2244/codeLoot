@@ -9,7 +9,7 @@ const Admin = () => {
     axios
       .get("https://devs-clash.onrender.com/getQuestions", {})
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setFinalQuestionsUploaded(res.data);
       })
       .catch((err) => {
@@ -37,11 +37,11 @@ const Admin = () => {
       explanation: "",
     },
     onSubmit: (values) => {
-      console.log(values);
+      // console.log(values);
       axios
         .post("https://devs-clash.onrender.com/uploadQuestion", values)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
         })
         .catch((err) => {
           console.log(err);

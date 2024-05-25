@@ -28,22 +28,22 @@ const SignupPage = ({ openSignupModal, oncloseSignupModal }) => {
           email: values.Email,
         })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
         })
         .catch((err) => {
           console.log(err);
         });
-        console.log("first")
+        // console.log("first")
     },
   });
 
   if (!openSignupModal) return null;
   return ReactDOM.createPortal(
-    <div className="absolute z-20 w-[100vw] flex justify-center h-[100vh] backdrop-blur-sm bg-black/30">
-      <RemoveScrollBar />
-      <div className="flex items-start">
+    <div className="fixed z-20 w-[100vw] flex justify-center h-[100vh] backdrop-blur-sm bg-black/30">
+    
+      <div className="flex items-start ">
         <form
-          className="flex h-auto flex-col p-5 rounded-md  items-center bg-primary_black text-lg  w-fit gap-3"
+          className="flex h-[100vh] flex-col p-5 rounded-md  items-center bg-primary_black text-lg  w-fit gap-1"
           onSubmit={formik.handleSubmit}
         >
           <div className="w-full flex justify-end">

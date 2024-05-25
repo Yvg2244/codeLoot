@@ -66,7 +66,7 @@ const RoomPageEditorSection = () => {
           type: "SET_OUTPUT_STATUS",
           outputStatus: response.data.msg[0],
         });
-        // console.log(response.data.msg[0]);
+        console.log(response.data.msg[0]);
       })
       .catch((error) => {
         console.error("Error:", error);

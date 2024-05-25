@@ -8,14 +8,13 @@ import SignupPage from "./SignupPage";
 const Navbar = () => {
   const [openLoginRoomRequest, setOpenLoginRoomRequest] = useState(false);
   const [openSignupRoomRequest, setOpenSignupRoomRequest] = useState(false);
-
   const [{ user }, dispatch] = useStateValue();
   const [userName,setUserName]=useState('')
   useEffect(()=>{
     setUserName(user?user.name:"Login")
   },[user,userName])
   return (
-    <nav className="bg-primary_black fixed font-monte justify-center text-[18px] flex w-full py-4 px-2">
+    <nav className="bg-primary_black  fixed font-monte justify-center text-[18px] flex w-[100vw] py-4 px-2">
       {
         <LoginPage
           openLoginModal={openLoginRoomRequest}

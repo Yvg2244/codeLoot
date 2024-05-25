@@ -15,7 +15,7 @@ const Contest = () => {
         user_name: user.user_name,
       })
       .then((res) => {
-        console.log(res.data.contest);
+        // console.log(res.data.contest);
         setContestData(res.data.contest);
       })
       .catch((err) => {

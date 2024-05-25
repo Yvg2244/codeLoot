@@ -264,8 +264,8 @@ const NewRoomForm = () => {
               )
               .then((response) => {
                 // console.log(newRoom);
-                console.log(Object.values(response));
-                console.log(response)
+                // console.log(Object.values(response));
+                // console.log(response)
                 dispatch({
                   type: "SET_QUESTIONS",
                   questions: Object.values(response.data.questions),

@@ -13,12 +13,12 @@ const ActiveRooms = () => {
         setAvailableRoom(res.data.result);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   }, []);
 
   return (
-    <div className="flex w-full min-h-[50vh] pb-[2rem] gap-[18px] items-center  flex-wrap">
+    <div className="flex w-[100vw]  min-h-[50vh] pb-[2rem] gap-[18px] items-center  flex-wrap">
       {availableRoom?availableRoom.map((item) => {
         return (
           <ActiveRoomCard

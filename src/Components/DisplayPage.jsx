@@ -11,7 +11,7 @@ const DisplayPage = () => {
   const [{ joinRoomFlag },dispatch] = useStateValue();
   
   return (
-    <main className="w-[100vw] h-[auto] pt-[5.25rem] px-[2rem] bg-primary_gray flex flex-col items-center text-white">
+    <main className="w-[98vw] h-[auto] pt-[5.25rem] px-[2rem] bg-primary_gray flex flex-col items-center text-white">
       {
         <JoinRoomModal
           open={joinRoomRequest}
@@ -39,7 +39,7 @@ const DisplayPage = () => {
           className="py-[6px] cursor-pointer px-[36px] text-[16px] font-medium font-inter tracking-wide rounded-md items-center justify-center flex bg-primary_green text-black"
         >
           <p className="text-black">Create Room</p>
-          {/* <BsArrowRightCircle className="bg-black"/> */}
+          
         </Link>
         <div
           className="py-[6px] px-[36px] text-[16px] font-medium font-inter tracking-wide rounded-md bg-primary_gray text-white border-2 border-white"
@@ -54,7 +54,7 @@ const DisplayPage = () => {
           Join Room
         </div>
       </div>
-      <div className="">
+      <div className="w-[95vw] ">
         <div className="w-full flex text-[20px] mt-[50px] mb-5 font-bold items-start">
           Active Rooms
         </div>

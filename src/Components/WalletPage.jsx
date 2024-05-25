@@ -49,7 +49,7 @@ const WalletPage = () => {
             .catch((err) => {
               console.log(err);
             });
-            console.log(money);
+            // console.log(money);
           }}
         >
           Add Money

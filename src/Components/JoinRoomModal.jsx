@@ -9,14 +9,14 @@ const JoinRoomModal = ({ open, onClose }) => {
   const [enteredRoomCode, setEnteredRoomCode] = useState("");
   if (!open) return null;
   return ReactDOM.createPortal(
-    <div className="absolute z-10 w-[100vw] flex justify-center h-[100vh] backdrop-blur-sm bg-black/30">
+    <div className="fixed z-10 w-[100vw] flex justify-center h-[100vh] backdrop-blur-sm bg-black/30">
       <div className="h-[15rem] w-[20rem] bg-primary_gray flex flex-col gap-5 items-center justify-center">
         <div className="text-primary_green font-monte">Enter Room Code</div>
         <input
           type="text"
           onChange={(e) => {
             setEnteredRoomCode(e.target.value);
-            console.log(enteredRoomCode);
+            // console.log(enteredRoomCode);
           }}
         ></input>
         <div
@@ -29,12 +29,12 @@ const JoinRoomModal = ({ open, onClose }) => {
                 roomId: enteredRoomCode,
               })
               .then((res) => {
-                console.log(res)
+                // console.log(res)
                 dispatch({
                   type: "SET_QUESTIONS",
                   questions: res.data.questions,
                 });
-                console.log(res.data);
+                // console.log(res.data);
                 dispatch({
                   type:"SET_JOINED_ROOM",
                   joinedRoom:res.data

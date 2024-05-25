@@ -13,7 +13,7 @@ const LeaderBoardComponent = () => {
   useEffect(() => {
     // console.log("working")
   }, [outputStatus]);
-  console.log(outputStatus);
+  // console.log(outputStatus);
   return (
     <div className="bg-primary_gray_light font-poppins h-[100vh] w-[20rem] pt-[5rem] py-5 px-2 gap-4 flex text-[1rem] tracking-wide flex-col">
       <p className="text-primary_green text-[2rem]">Test Case Result</p>
@@ -30,7 +30,7 @@ const LeaderBoardComponent = () => {
             })
             .then((res) => {
               setAa(res.data)
-              console.log(res.data);
+              // console.log(res.data);
             })
             .catch((err) => {
               console.log(err);
