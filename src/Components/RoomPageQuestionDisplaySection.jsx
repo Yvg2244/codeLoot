@@ -30,21 +30,21 @@ const RoomPageQuestionDisplaySection = () => {
             <div key={index}>
               <span className="font-semibold">Testcase No.{index + 1} :</span>
               {
-                <div>
-                  <div>Number of inputs : {item[0]}</div>
-                  <div>
-                    Input :{" "}
-                    {item[1]?.map((input) => {
-                      return <span>{input} </span>;
-                    })}
-                  </div>
-                  <div>
-                    Output :{" "}
-                    {item[2]?.map((output) => {
-                      return <span>{output} </span>;
-                    })}
-                  </div>
-                </div>
+                // <div>
+                //   <div>Number of inputs : {item[0]}</div>
+                //   <div>
+                //     Input :{" "}
+                //     {item[1]?.map((input) => {
+                //       return <span>{input} </span>;
+                //     })}
+                //   </div>
+                //   <div>
+                //     Output :{" "}
+                //     {item[2]?.map((output) => {
+                //       return <span>{output} </span>;
+                //     })}
+                //   </div>
+                // </div>
               }
             </div>
           );

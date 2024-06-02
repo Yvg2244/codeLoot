@@ -6,7 +6,7 @@ import { v4 as uuid } from "uuid";
 import { BsPencilSquare } from "react-icons/bs";
 import axios from "axios";
 const NewRoomForm = () => {
-  const [{ newRoom,user, questions }, dispatch] = useStateValue();
+  const [{ newRoom, user, questions }, dispatch] = useStateValue();
   const [createRoomRequest, setcreateRoomRequest] = useState(false);
   const [topic, setTopic] = useState("");
   const [duration, setDuration] = useState("");
@@ -177,7 +177,7 @@ const NewRoomForm = () => {
             setDifficulty(e.target.value);
           }}
         >
-          <input type="radio" id="easy" name="radioDifficulty" value="Easy" />
+          <input type="radio" id="easy" name="radioDifficulty" value="easy" />
           <label className="bg-[#363636] text-[#999999]" htmlFor="easy">
             Easy
           </label>
@@ -192,7 +192,7 @@ const NewRoomForm = () => {
             Medium
           </label>
 
-          <input type="radio" id="hard" name="radioDifficulty" value="Hard" />
+          <input type="radio" id="hard" name="radioDifficulty" value="hard" />
           <label className="bg-[#363636] text-[#999999]" htmlFor="hard">
             Hard
           </label>
@@ -210,7 +210,12 @@ const NewRoomForm = () => {
             Public
           </label>
 
-          <input type="radio" id="private" name="radioRoomType" value="private" />
+          <input
+            type="radio"
+            id="private"
+            name="radioRoomType"
+            value="private"
+          />
           <label className="bg-[#363636] text-[#999999]" htmlFor="private">
             Private
           </label>
@@ -233,17 +238,32 @@ const NewRoomForm = () => {
                 difficulty: difficulty,
                 roomType: roomType,
                 participants: [],
-                user_name:user?.user_name,
+                user_name: user?.user_name,
                 questions: [],
                 winner: "",
               },
             });
             setcreateRoomRequest(!createRoomRequest);
-
+            console.log({
+              id: small_id,
+              topic: topic,
+              duration: duration,
+              noOfQuestions: noOfQuestions,
+              startTime: startTime,
+              startTimeHour: startTimeHour,
+              startTimeMinute: startTimeMinute,
+              startTimeSecound: "00",
+              difficulty: difficulty,
+              roomType: roomType,
+              user_name: user?.user_name,
+              questions: [],
+              winner: "",
+            });
             axios
               .post(
                 "https://devs-clash.onrender.com/create",
-                { id: small_id,
+                {
+                  id: small_id,
                   topic: topic,
                   duration: duration,
                   noOfQuestions: noOfQuestions,
@@ -253,9 +273,10 @@ const NewRoomForm = () => {
                   startTimeSecound: "00",
                   difficulty: difficulty,
                   roomType: roomType,
-                  user_name:user?.user_name,
+                  user_name: user?.user_name,
                   questions: [],
-                  winner: "" },
+                  winner: "",
+                },
                 {
                   headers: {
                     "Content-Type": "application/json",
@@ -265,7 +286,7 @@ const NewRoomForm = () => {
               .then((response) => {
                 // console.log(newRoom);
                 // console.log(Object.values(response));
-                // console.log(response)
+                console.log(response)
                 dispatch({
                   type: "SET_QUESTIONS",
                   questions: Object.values(response.data.questions),
